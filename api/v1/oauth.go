@@ -18,6 +18,16 @@ type oauthApi struct {
 	user service.UserService
 }
 
+// Login... logged in
+// @Summary login by user mail and password
+// @Description api for logging in by user mail and password
+// @Accept  json
+// @Produce  json
+// @Param loginDto body v1.LoginDto true "loginDto object that needs to be added to log in"
+// @Param grant_type query string true "grant type"
+// @Success 200 {object} common.ResponseDTO
+// @Failure 400 {object} common.ResponseDTO
+// @Router /oauth/login [post]
 func (o oauthApi) Login(context echo.Context) error {
 	if context.QueryParam("grant_type") == string(enums.PASSWORD) {
 		return o.handlePasswordGrant(context)
