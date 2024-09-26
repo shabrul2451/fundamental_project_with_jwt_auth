@@ -1,1 +1,1 @@
-# fundamental_project_with_oauth
+# fundamental_project_with_jwt_auth
